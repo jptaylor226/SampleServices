@@ -1,0 +1,27 @@
+﻿<Window x:Class="WCFWindowsClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WCFWindowsClient"
+        mc:Ignorable="d"
+        Title="WCF Client" Height="420" Width="450" ResizeMode="NoResize">
+    <Grid>
+        <ListBox x:Name="lbxItems" HorizontalAlignment="Left" Height="153" Margin="32,169,0,0" VerticalAlignment="Top" Width="376"/>
+        <Button Content="Refresh" HorizontalAlignment="Left" Height="29" Margin="340,135,0,0" VerticalAlignment="Top" Width="66"/>
+        <Label Content="Items" HorizontalAlignment="Left" Height="28" Margin="32,136,0,0" VerticalAlignment="Top" Width="134"/>
+        <Button x:Name="btnDoIt" Content="Do It" HorizontalAlignment="Left" Height="28" Margin="340,92,0,0" VerticalAlignment="Top" Width="66" Click="BtnDoIt_Click"/>
+        <RadioButton x:Name="rbAdd" Content="Add" HorizontalAlignment="Left" Height="23" Margin="46,10,0,0" VerticalAlignment="Top" Width="82" GroupName="action" VerticalContentAlignment="Center" Checked="Rb_Checked"/>
+        <RadioButton x:Name="rbGet" Content="Get" HorizontalAlignment="Left" Height="23" Margin="47,38,0,0" VerticalAlignment="Top" Width="84" GroupName="action" VerticalContentAlignment="Center" Checked="Rb_Checked"/>
+        <RadioButton x:Name="rbUpdate" Content="Update" HorizontalAlignment="Left" Height="23" Margin="199,10,0,0" VerticalAlignment="Top" Width="84" GroupName="action" VerticalContentAlignment="Center" Checked="Rb_Checked"/>
+        <RadioButton x:Name="rbDelete" Content="Delete" HorizontalAlignment="Left" Height="23" Margin="199,38,0,0" VerticalAlignment="Top" Width="82" GroupName="action" VerticalContentAlignment="Center" Checked="Rb_Checked"/>
+        <Button x:Name="btnExit" Content="Exit" HorizontalAlignment="Left" Height="29" Margin="342,330,0,0" VerticalAlignment="Top" Width="66" Click="BtnExit_Click" RenderTransformOrigin="0.5,1"/>
+        <GroupBox x:Name="grpIndex" Header="Index" HorizontalAlignment="Left" Height="64" Margin="48,66,0,0" VerticalAlignment="Top" Width="83">
+            <TextBox x:Name="txtIndex" HorizontalAlignment="Center" Height="27" Margin="0,10,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"/>
+        </GroupBox>
+        <GroupBox x:Name="grpValue" Header="Value" HorizontalAlignment="Left" Height="64" Margin="151,66,0,0" VerticalAlignment="Top" Width="159">
+            <TextBox x:Name="txtValue" HorizontalAlignment="Center" Height="27" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" VerticalContentAlignment="Center"/>
+        </GroupBox>
+
+    </Grid>
+</Window>

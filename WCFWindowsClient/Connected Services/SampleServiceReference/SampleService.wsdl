@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SampleService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_ISampleService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://samplewcf20190724021558.azurewebsites.net/SampleService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://samplewcf20190724021558.azurewebsites.net/SampleService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://samplewcf20190724021558.azurewebsites.net/SampleService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISampleService_GetValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValues" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_GetValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_GetValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetValue" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_GetValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_PostValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:PostValue" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_PostValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PostValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_PutValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:PutValue" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_PutValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PutValueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_DeleteValue_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteValue" />
+  </wsdl:message>
+  <wsdl:message name="ISampleService_DeleteValue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteValueResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISampleService">
+    <wsdl:operation name="GetValues">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/GetValues" message="tns:ISampleService_GetValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISampleService/GetValuesResponse" message="tns:ISampleService_GetValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/GetValue" message="tns:ISampleService_GetValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISampleService/GetValueResponse" message="tns:ISampleService_GetValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PostValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/PostValue" message="tns:ISampleService_PostValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISampleService/PostValueResponse" message="tns:ISampleService_PostValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PutValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/PutValue" message="tns:ISampleService_PutValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISampleService/PutValueResponse" message="tns:ISampleService_PutValue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteValue">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISampleService/DeleteValue" message="tns:ISampleService_DeleteValue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISampleService/DeleteValueResponse" message="tns:ISampleService_DeleteValue_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISampleService" type="tns:ISampleService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetValues">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/GetValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/PostValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/PutValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/DeleteValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_ISampleService" type="tns:ISampleService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_ISampleService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetValues">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/GetValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/GetValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/PostValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PutValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/PutValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteValue">
+      <soap:operation soapAction="http://tempuri.org/ISampleService/DeleteValue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SampleService">
+    <wsdl:port name="BasicHttpBinding_ISampleService" binding="tns:BasicHttpBinding_ISampleService">
+      <soap:address location="http://samplewcf20190724021558.azurewebsites.net/SampleService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_ISampleService" binding="tns:BasicHttpsBinding_ISampleService">
+      <soap:address location="https://samplewcf20190724021558.azurewebsites.net/SampleService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
